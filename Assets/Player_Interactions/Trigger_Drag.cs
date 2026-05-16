@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class Trigger_Drag : MonoBehaviour
 {
     private Camera mainCamera;
-    private bool isDragging = false;
+    public bool isDragging = false;
     private float zDistance;
     private Vector3 offset; // 클릭 지점과 오브젝트 중심 사이의 차이 저장
 
@@ -28,21 +28,21 @@ public class Trigger_Drag : MonoBehaviour
         if (pointer.press.wasPressedThisFrame)
         {
             StartDrag(pointer.position.ReadValue());
-            Interface.OnEnter(gameObject);
+            Interface?.OnEnter(gameObject);
         }
 
         // 떼었을 때 (OnMouseUp 대체)
         if (pointer.press.wasReleasedThisFrame)
         {
             isDragging = false;
-            Interface.OnExit(gameObject);
+            Interface?.OnExit(gameObject);
         }
 
         // 드래그 중일 때 (OnMouseDrag 대체)
         if (isDragging)
         {
             ExecuteDrag(pointer.position.ReadValue());
-            Interface.OnStay(gameObject);
+            Interface?.OnStay(gameObject);
         }
     }
 
