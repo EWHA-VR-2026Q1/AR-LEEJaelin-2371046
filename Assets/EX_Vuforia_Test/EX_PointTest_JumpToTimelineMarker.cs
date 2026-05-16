@@ -21,12 +21,9 @@ public class EX_PointTest_JumpToTimelineMarker : MonoBehaviour
     {
         if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
         {
+            Debug.Log("터치 입력 감지");
             Vector2 screenPosition = Pointer.current.position.ReadValue();
             ExecuteRaycast(screenPosition);
-        }
-        if (Mouse.current != null && Mouse.current.press.wasPressedThisFrame)
-        {
-            Act_JumpToMarker(MarkerName);
         }
     }
 
