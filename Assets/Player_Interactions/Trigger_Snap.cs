@@ -15,7 +15,7 @@ public class Trigger_Snap : MonoBehaviour
         if (Pointer.current != null && Pointer.current.press.wasReleasedThisFrame)
         {
             CheckAndSnap();
-           
+            GetComponent<IInteractable>().OnClick();
         }
     }
 

@@ -49,9 +49,6 @@ public class Trigger_Lerp : MonoBehaviour
         var pointer = Pointer.current;
         if (pointer == null) return;
 
-        Trigger_Drag drag = GetComponent<Trigger_Drag>();
-        if (drag != null && drag.isDragging) return;
-
         // 클릭(또는 터치) 순간 감지
         if (pointer.press.wasPressedThisFrame)
         {
